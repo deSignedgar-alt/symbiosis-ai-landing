@@ -4,128 +4,404 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SYMBIOSIS.AI — A human-centric knowledge economy</title>
-  <meta name="description" content="SYMBIOSIS.AI shifts the AI market from resource depletion to a human-centric knowledge economy. A letter from founder Edgar Norton UA.">
+  <meta name="description" content="SYMBIOSIS.AI shifts the AI market from resource depletion to a human-centric knowledge economy. Collaboration: iicolab16@gmail.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #16130f;
-      --paper: #f6f1e6;
-      --card: #fffaf1;
-      --rule: #2a241c;
-      --clay: #8d2f24;
-      --muted: #3d362c;
+      --ink: #14110c;
+      --paper: #fff8ee;
+      --night: #071018;
+      --gold: #ffe14a;
+      --cyan: #9aefff;
+      --clay: #9a3412;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background:
-        radial-gradient(1200px 500px at 10% -10%, #efe2c4 0%, transparent 55%),
-        var(--paper);
-      color: var(--ink);
+        radial-gradient(900px 480px at 100% -10%, rgba(154, 239, 255, 0.16), transparent 55%),
+        radial-gradient(700px 420px at -10% 30%, rgba(255, 225, 74, 0.1), transparent 50%),
+        var(--night);
+      color: #f6f1e7;
       font-family: "Source Sans 3", "Segoe UI", sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       line-height: 1.55;
     }
-    .wrap {
-      width: min(46rem, calc(100% - 2rem));
+    a { color: inherit; }
+    .top {
+      width: min(1120px, calc(100% - 1.5rem));
       margin: 0 auto;
-      padding: 2.5rem 0 4rem;
+      padding: 1rem 0 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
-    header {
-      border-bottom: 4px solid var(--ink);
-      padding-bottom: 1.25rem;
-      margin-bottom: 2rem;
+    .brand {
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.15rem;
+      text-decoration: none;
     }
-    .mark {
+    .brand i { color: var(--gold); font-style: normal; }
+    .topmail {
+      color: var(--ink);
+      background: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+    }
+    .stage {
+      width: min(1120px, calc(100% - 1.5rem));
+      margin: 1rem auto 0;
+      display: grid;
+      grid-template-columns: 1.45fr 0.9fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+    .show {
+      background: #02060b;
+      border: 1px solid rgba(154, 239, 255, 0.35);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+    }
+    .frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      touch-action: pan-y;
+    }
+    .shot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+    .shot.on { opacity: 1; }
+    .bar { height: 5px; background: rgba(255, 255, 255, 0.16); }
+    .bar i {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--gold);
+    }
+    .dock {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 0.8rem 0.85rem;
+    }
+    .dock button {
+      min-width: 3rem;
+      min-height: 3rem;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .dock button:hover,
+    .dock button:focus-visible { background: var(--gold); color: var(--ink); outline: none; }
+    .dots { display: flex; gap: 0.4rem; margin-right: auto; }
+    .dot {
+      width: 0.95rem;
+      height: 0.95rem;
+      border-radius: 99px;
+      border: 0;
+      padding: 0;
+      min-width: 0;
+      min-height: 0;
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .dot[aria-current="true"] { background: var(--gold); width: 2rem; }
+    #count {
+      font-family: Syne, sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+    .cap {
+      margin: 0;
+      padding: 0 0.95rem 0.15rem;
+      color: var(--cyan);
+      font-weight: 700;
+      min-height: 3.2rem;
+    }
+    .intro {
+      padding: 0.4rem 0.2rem 0.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .eyebrow {
+      margin: 0 0 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    h1 {
       margin: 0;
       font-family: Fraunces, Georgia, serif;
-      font-size: clamp(2.4rem, 7vw, 4.2rem);
-      font-weight: 680;
+      font-weight: 560;
+      font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+      line-height: 1.08;
       letter-spacing: -0.03em;
-      line-height: 0.95;
     }
-    .mark span { color: var(--clay); }
-    .subject {
-      margin: 1.1rem 0 0;
-      max-width: 38rem;
-      font-size: 1.15rem;
-      font-weight: 600;
-      line-height: 1.35;
+    .coop {
+      margin: 1.3rem 0 0.55rem;
+      font-weight: 700;
     }
-    article {
-      background: var(--card);
-      border: 2px solid var(--ink);
-      box-shadow: 10px 10px 0 var(--ink);
-      padding: clamp(1.25rem, 4vw, 2.4rem);
+    .mail {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.28rem;
+      padding: 0.85rem 1.05rem;
+      border-radius: 14px;
+      box-shadow: 6px 6px 0 #9aefff;
     }
-    p { margin: 0 0 1.15rem; }
-    .salute { font-family: Fraunces, Georgia, serif; font-size: 1.7rem; margin-bottom: 1rem; }
-    h2 {
+    .mail:hover { transform: translate(-2px, -2px); }
+    .sheet {
+      width: min(760px, calc(100% - 1.5rem));
+      margin: 2.2rem auto 4rem;
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 22px;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+    }
+    .sheet p { margin: 0 0 1.1rem; }
+    .salute {
       font-family: Fraunces, Georgia, serif;
-      font-size: 1.85rem;
-      line-height: 1.15;
-      margin: 1.8rem 0 0.45rem;
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
     }
     .item {
-      border-top: 2px solid var(--rule);
-      padding-top: 0.2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.35rem 0.9rem;
+      border-top: 2px solid var(--ink);
+      padding-top: 0.95rem;
+      margin: 0.3rem 0 1.1rem;
+    }
+    .num {
+      font-family: Syne, sans-serif;
+      font-size: 1.45rem;
+      color: var(--clay);
+      line-height: 1;
+      padding-top: 0.25rem;
+    }
+    h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1.15;
+      margin: 0 0 0.35rem;
     }
     .ask {
-      background: #f3e2c2;
-      border-left: 8px solid var(--clay);
+      background: #ffe9a3;
+      border-radius: 12px;
       padding: 0.9rem 1rem;
-      margin: 1.4rem 0 1.2rem;
     }
-    footer {
-      margin-top: 1.4rem;
-      font-family: Fraunces, Georgia, serif;
+    .sign { font-family: Fraunces, Georgia, serif; }
+    .sign p { margin: 0; }
+    .role { font-family: "Source Sans 3", sans-serif; font-weight: 700; margin-top: 0.2rem; }
+    .sign a { color: var(--clay); font-weight: 700; }
+    @media (max-width: 860px) {
+      .stage { grid-template-columns: 1fr; }
+      .intro { padding-bottom: 0.4rem; }
+      body { font-size: 1.12rem; }
     }
-    footer p { margin: 0; }
-    .role { font-family: "Source Sans 3", sans-serif; font-weight: 600; margin-top: 0.15rem; }
-    a { color: var(--clay); }
-    @media (max-width: 640px) {
-      body { font-size: 1.15rem; }
-      article { box-shadow: 6px 6px 0 var(--ink); }
+    @media (prefers-reduced-motion: reduce) {
+      .shot { transition: none; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <p class="mark">SYMBIOSIS<span>.AI</span></p>
-      <p class="subject">Subject: SYMBIOSIS.AI — Shifting the AI Market from Resource Depletion to a Human-Centric Knowledge Economy</p>
-    </header>
-    <article>
-      <p class="salute">Dear Partners,</p>
-      <p>The trillion-dollar AI market has hit a structural wall. Modern models are suffering from Model Collapse because they are training on inbred, synthetic data generated by other AIs. At the same time, data centers are facing an unprecedented energy crisis by burning gigawatts of power to process low-value entertainment content.</p>
-      <p>We are launching SYMBIOSIS.AI — a completely new economic model where human cognitive reflection and unique life experience become the highest-value global asset class. Instead of forcing humans into mechanical labor or isolating them via basic income, we treat the human brain as the ultimate generator of unique context, which is the only fuel that can save AI from digital degeneration.</p>
-      <p>To realize this economic shift, we have designed a scalable technology framework:</p>
+<body id="top">
+  <div class="top">
+    <a class="brand" href="#top">SYMBIOSIS<i>.AI</i></a>
+    <a class="topmail" href="mailto:iicolab16@gmail.com">iicolab16@gmail.com</a>
+  </div>
 
-      <section class="item">
+  <section class="stage" aria-roledescription="carousel" aria-label="SYMBIOSIS.AI pictures">
+    <div class="show">
+      <div class="frame" id="frame">
+        <img class="shot on" src="slides/01-old-model.jpg" alt="A woman throws an old wooden chair out of a high-rise window. The picture says Old civilization model.">
+        <img class="shot" src="slides/02-idea-credit.jpg" alt="A woman faces a world map linking an idea for a new bus-stop design to a laminar-car program. The picture says you have been credited 14,000 dollars." aria-hidden="true">
+        <img class="shot" src="slides/03-mutual.jpg" alt="Three frames: a person holds a blue idea, the idea becomes a golden form, then the person writes while the form glows. The words are Human gives pure ideas, AI amplifies ideas, Human develops from insights, Mutual enhancement." aria-hidden="true">
+        <img class="shot" src="slides/04-future.jpg" alt="A city street splits into a greener future city. The picture says growth in geometric progression and more than 300 percent per year." aria-hidden="true">
+      </div>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+      <p class="cap">Old civilization model</p>
+      <p class="cap" hidden>An idea crosses the world and comes back as value</p>
+      <p class="cap" hidden>Human gives pure ideas. AI amplifies them. Both grow.</p>
+      <p class="cap" hidden>From the city of now to growth in geometric progression</p>
+      <div class="dock">
+        <button type="button" id="prev" aria-label="Previous picture">←</button>
+        <div class="dots">
+          <button type="button" class="dot" aria-label="Picture 1" aria-current="true"></button>
+          <button type="button" class="dot" aria-label="Picture 2"></button>
+          <button type="button" class="dot" aria-label="Picture 3"></button>
+          <button type="button" class="dot" aria-label="Picture 4"></button>
+        </div>
+        <span id="count">01 / 04</span>
+        <button type="button" id="next" aria-label="Next picture">→</button>
+        <button type="button" id="pause" aria-pressed="false">Pause</button>
+      </div>
+    </div>
+    <div class="intro">
+      <p class="eyebrow">Subject</p>
+      <h1>Shifting the AI Market from Resource Depletion to a Human-Centric Knowledge Economy</h1>
+      <p class="coop">Сотрудничество · Collaboration</p>
+      <a class="mail" href="mailto:iicolab16@gmail.com">iicolab16@gmail.com</a>
+    </div>
+  </section>
+
+  <article class="sheet" id="letter">
+    <p class="salute">Dear Partners,</p>
+    <p>The trillion-dollar AI market has hit a structural wall. Modern models are suffering from Model Collapse because they are training on inbred, synthetic data generated by other AIs. At the same time, data centers are facing an unprecedented energy crisis by burning gigawatts of power to process low-value entertainment content.</p>
+    <p>We are launching SYMBIOSIS.AI — a completely new economic model where human cognitive reflection and unique life experience become the highest-value global asset class. Instead of forcing humans into mechanical labor or isolating them via basic income, we treat the human brain as the ultimate generator of unique context, which is the only fuel that can save AI from digital degeneration.</p>
+    <p>To realize this economic shift, we have designed a scalable technology framework:</p>
+
+    <section class="item">
+      <div class="num">01</div>
+      <div>
         <h2>The Socratic Co-Author</h2>
         <p>Frontend. A multi-level AI assistant that adapts to any user — from a blue-collar worker to a Nobel laureate. It does not just mirror the user, but actively stimulates unique human insights and empirical knowledge through adaptive, cross-disciplinary dialogue.</p>
-      </section>
-      <section class="item">
+      </div>
+    </section>
+    <section class="item">
+      <div class="num">02</div>
+      <div>
         <h2>The Slow Recursive Engine</h2>
         <p>Backend. An autonomous cognitive collider that works deep in the backend. It continuously scans the archive of human reflections and silently assembles fragmented ideas into high-order breakthroughs, like puzzles.</p>
-      </section>
-      <section class="item">
+      </div>
+    </section>
+    <section class="item">
+      <div class="num">03</div>
+      <div>
         <h2>“Stone-in-a-Pond” Tokenomics</h2>
         <p>Every participant starts with an equal stake of 1,000 tokens. When a human idea enters the archive, its value scales retrospectively. Smart contracts automatically award equity micro-shares and royalties to creators whenever their insights lock into global commercial projects.</p>
-      </section>
+      </div>
+    </section>
 
-      <p>By shifting computation from brute-force pattern searching to high-order sense-making, this architecture saves up to 70% of data center energy and bypasses traditional corporate legal barriers via a decentralized protocol.</p>
-      <p>We are currently raising a seed round to build our recursive backend engine and run a 4-month pilot experiment (“Cognitive Lift”) with 1,500 users to prove a 200–300% increase in human-AI efficiency.</p>
-      <p class="ask">Let me know if you would be interested to see our conceptual 9-slide framework, and I will share the access link.</p>
-      <footer>
-        <p>Best regards,</p>
-        <p>Edgar Norton UA</p>
-        <p class="role">Founder, SYMBIOSIS.AI</p>
-      </footer>
-    </article>
-  </div>
+    <p>By shifting computation from brute-force pattern searching to high-order sense-making, this architecture saves up to 70% of data center energy and bypasses traditional corporate legal barriers via a decentralized protocol.</p>
+    <p>We are currently raising a seed round to build our recursive backend engine and run a 4-month pilot experiment (“Cognitive Lift”) with 1,500 users to prove a 200–300% increase in human-AI efficiency.</p>
+    <p class="ask">Let me know if you would be interested to see our conceptual 9-slide framework, and I will share the access link.</p>
+    <footer class="sign">
+      <p>Best regards,</p>
+      <p>Edgar Norton UA</p>
+      <p class="role">Founder, SYMBIOSIS.AI</p>
+      <p class="role"><a href="mailto:iicolab16@gmail.com">iicolab16@gmail.com</a></p>
+    </footer>
+  </article>
+
+  <script>
+    (function () {
+      var shots = Array.prototype.slice.call(document.querySelectorAll(".shot"));
+      var caps = Array.prototype.slice.call(document.querySelectorAll(".cap"));
+      var dots = Array.prototype.slice.call(document.querySelectorAll(".dot"));
+      var bar = document.getElementById("bar");
+      var pauseBtn = document.getElementById("pause");
+      var count = document.getElementById("count");
+      var i = 0;
+      var timer = null;
+      var wait = 6200;
+      var paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function show(n) {
+        i = (n + shots.length) % shots.length;
+        shots.forEach(function (el, k) {
+          var on = k === i;
+          el.classList.toggle("on", on);
+          el.setAttribute("aria-hidden", on ? "false" : "true");
+        });
+        caps.forEach(function (el, k) { el.hidden = k !== i; });
+        dots.forEach(function (el, k) {
+          el.setAttribute("aria-current", k === i ? "true" : "false");
+        });
+        count.textContent = (i + 1 < 10 ? "0" : "") + (i + 1) + " / 04";
+        bar.style.animation = "none";
+        void bar.offsetWidth;
+        if (!paused) bar.style.animation = "fill " + wait + "ms linear";
+      }
+
+      function queue() {
+        clearTimeout(timer);
+        if (paused) return;
+        timer = setTimeout(function () {
+          show(i + 1);
+          queue();
+        }, wait);
+      }
+
+      document.getElementById("prev").addEventListener("click", function () {
+        show(i - 1);
+        queue();
+      });
+      document.getElementById("next").addEventListener("click", function () {
+        show(i + 1);
+        queue();
+      });
+      dots.forEach(function (el, k) {
+        el.addEventListener("click", function () {
+          show(k);
+          queue();
+        });
+      });
+      pauseBtn.addEventListener("click", function () {
+        paused = !paused;
+        pauseBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+        pauseBtn.textContent = paused ? "Play" : "Pause";
+        show(i);
+        queue();
+      });
+      if (paused) {
+        pauseBtn.setAttribute("aria-pressed", "true");
+        pauseBtn.textContent = "Play";
+      }
+
+      var startX = null;
+      var frame = document.getElementById("frame");
+      frame.addEventListener("pointerdown", function (e) { startX = e.clientX; });
+      frame.addEventListener("pointerup", function (e) {
+        if (startX === null) return;
+        var dx = e.clientX - startX;
+        startX = null;
+        if (Math.abs(dx) < 48) return;
+        show(i + (dx < 0 ? 1 : -1));
+        queue();
+      });
+      document.addEventListener("keydown", function (e) {
+        var tag = (e.target && e.target.tagName) || "";
+        if (tag === "INPUT" || tag === "TEXTAREA") return;
+        if (e.key === "ArrowRight") { show(i + 1); queue(); }
+        if (e.key === "ArrowLeft") { show(i - 1); queue(); }
+      });
+
+      var style = document.createElement("style");
+      style.textContent = "@keyframes fill { from { width: 0; } to { width: 100%; } }";
+      document.head.appendChild(style);
+      show(0);
+      queue();
+    })();
+  </script>
 </body>
 </html>
