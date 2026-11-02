@@ -335,7 +335,8 @@
         });
         caps.forEach(function (el, k) { el.hidden = k !== i; });
         dots.forEach(function (el, k) {
-          el.setAttribute("aria-current", k === i ? "true" : "false");
+          if (k === i) el.setAttribute("aria-current", "true");
+          else el.removeAttribute("aria-current");
         });
         count.textContent = (i + 1 < 10 ? "0" : "") + (i + 1) + " / 04";
         bar.style.animation = "none";
